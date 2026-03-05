@@ -1,0 +1,48 @@
+{student &&
+          student.map((std, ind) => {
+            return (
+              <div className="text-justify" key={ind}>
+                Dr{" "}
+                <span className="font-bold">
+                  {" "}
+                  {final.tname} S/o D/o {std.fname}{" "}
+                </span>{" "}
+                FCPS-II postgraduate trainee of{" "}
+                <span className="font-bold">{std.pward}</span> at{" "}
+                <span className="font-bold">{std.pinst}</span> wants to do
+                rotation in the <span className="font-bold">{std.rward}</span>{" "}
+                department at <span className="font-bold">{std.rinst}</span>{" "}
+                Karachi from{" "}
+                <span className="font-bold">
+                  {dayjs(std.fdate).format("DD-MMM-YYYY")}
+                </span>{" "}
+                to{" "}
+                <span className="font-bold">
+                  {dayjs(std.tdate).format("DD-MMM-YYYY")}
+                </span>
+                . <br />
+                <br /> Kindly allow the rotation and issue me a letter.
+                <br /> Remarks or comments for the HOD / Supervisor
+                ____________.
+                <p className="mt-10"></p>
+                ______________________________________
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                _________________________________________ <br />
+                Parent HOD / Supervisor with stamp
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Rotation HOD / Supervisor with stamp
+                <br />
+                <br />
+                <br />
+                <br />
+                _______________________________________ <br />
+                Vice-Principal / Program Coordinator <br /> School of
+                Postgraduate Studies <br /> Dow University of Health Sciences
+                Karachi
+              </div>
+            );
+          })}
