@@ -6,7 +6,8 @@ import dayjs from "dayjs";
 // import generatePDF from "react-to-pdf";
 // import jsPDF from "jspdf";
 import html2pdf from "html2pdf.js";
-import Logo from "./duhs-logo.png";
+// import Logo from "./duhs-logo.png";
+import Logo from "../../public/duhs-logo.png";
 import { IoMdPrint } from "react-icons/io";
 
 export default function RotationRep() {
