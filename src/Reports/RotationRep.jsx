@@ -9,6 +9,9 @@ import html2pdf from "html2pdf.js";
 // import Logo from "./duhs-logo.png";
 // import Logo from "/public/duhs-logo.png";
 import { IoMdPrint } from "react-icons/io";
+// Import Logo
+// import imgUrl from "/public/duhs-logo.png";
+// document.getElementById("logo").src = imgUrl;
 
 export default function RotationRep() {
   const { id } = useParams();
@@ -99,7 +102,8 @@ export default function RotationRep() {
 
       <section ref={contentRef} className="px-8 pt-5 mx-3">
         <div className="flex">
-          <img src={"/public/duhs-logo.png"} alt="duhs log" />
+          <img src={"/public/duhs-logo.PNG"} alt="duhs log" />
+          {/* <img src="" id="logo" alt="logo" /> */}
           <div>
             <div className="text-xl font-bold">
               Dow Universit of Health Sciences
