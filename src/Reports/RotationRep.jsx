@@ -7,9 +7,9 @@ import dayjs from "dayjs";
 // import jsPDF from "jspdf";
 import html2pdf from "html2pdf.js";
 // import Logo from "./duhs-logo.png";
-// import Logo from "../../public/duhs-logo.png";
+import Logo from "/public/duhs-logo.png";
 import { IoMdPrint } from "react-icons/io";
-import Logo from "../assets/duhs-logo.png";
+// import Logo from "../assets/duhs-logo.png";
 
 export default function RotationRep() {
   const { id } = useParams();
@@ -111,7 +111,7 @@ export default function RotationRep() {
           </div>
         </div>
         <div className=" text-center text-2xl font-bold mt-5 mb-2">
-          Rotation Application
+          ROTATION APPLICATION
         </div>
 
         <p className="text-right text-sm">
