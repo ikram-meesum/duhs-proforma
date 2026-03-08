@@ -105,7 +105,7 @@ export default function RotationRep() {
 
       <section ref={contentRef} className="px-8 pt-5 mx-3">
         <div className="flex">
-          <img src={"/public/duhs-logo.PNG"} alt="duhs log" />
+          <img src={"./public/duhs-logo.PNG"} alt="duhs log" />
           {/* <img src="" id="logo" alt="logo" /> */}
           <div>
             <div className="text-xl font-bold">
