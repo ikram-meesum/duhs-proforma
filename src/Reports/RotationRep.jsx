@@ -10,6 +10,7 @@ import html2pdf from "html2pdf.js";
 // import Logo from "/public/duhs-logo.png";
 import Logo from "../assets/duhs-logo.PNG";
 import { IoMdPrint } from "react-icons/io";
+import { PiArrowArcLeftBold } from "react-icons/pi";
 // Import Logo
 // import imgUrl from "/public/duhs-logo.png";
 // document.getElementById("logo").src = imgUrl;
@@ -97,7 +98,7 @@ export default function RotationRep() {
               onClick={() => navigate("/rotation")}
               className="flex items-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
             >
-              <IoMdPrint className="" />
+              <PiArrowArcLeftBold className="" />
               &nbsp; Go Back
             </button>
           </div>
