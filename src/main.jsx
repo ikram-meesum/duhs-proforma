@@ -6,14 +6,19 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Register from "./components/Register.jsx";
 import Rotation from "./components/Rotation.jsx";
 import RotationRep from "./Reports/RotationRep.jsx";
-import Test2 from "./components/Test2.jsx";
+// import Test2 from "./components/Test2.jsx";
+import Home from "./components/Home.jsx";
+import Leaves from "./components/Leaves.jsx";
+import OriginalDox from "./components/OriginalDox.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Register />} />
       <Route path="/rotation" element={<Rotation />} />
-      <Route path="/test" element={<Test2 />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/leave" element={<Leaves />} />
+      <Route path="/original" element={<OriginalDox />} />
       {/*
       <Route path="/detail/:id" element={<VehicalDetail />} /> */}
 

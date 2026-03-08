@@ -9,6 +9,10 @@ import { FaUserTie } from "react-icons/fa";
 import { RiHospitalFill } from "react-icons/ri";
 import { FaHospitalAlt } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
+import { AiFillPrinter } from "react-icons/ai";
+
+import toast, { Toaster } from "react-hot-toast";
+import dayjs from "dayjs";
 
 export default function Rotation() {
   // const [rotation, setRotation] = useState([]);
@@ -51,6 +55,7 @@ export default function Rotation() {
       created: Date.now(),
     };
     setItems((prevItems) => [...prevItems, newItem]);
+    toast.success("Rotation created successfully! Please take a printout.");
 
     // navigate("/currentfcps");
   };
@@ -59,10 +64,10 @@ export default function Rotation() {
       <Navbar />
       <br />
       <br />
-      <h2 className="text-3xl text-center font-bold bg-linear-to-r from-slate-950 to-slate-200 text-transparent bg-clip-text mt-9">
+      <h2 className="text-3xl text-center font-bold text-slate-800 mt-9">
         School of Postgraduate Studies
       </h2>
-      <h2 className="text-3xl text-center font-bold bg-linear-to-r from-slate-950 to-slate-200 text-transparent bg-clip-text mt-1 mb-2">
+      <h2 className="text-3xl text-center font-bold text-slate-800 mt-1 mb-2">
         Rotation Application
       </h2>
       <h2 className="text-sm text-center font-medium mb-9 text-slate-600">
@@ -492,6 +497,21 @@ export default function Rotation() {
               <button className="hover:shadow-form w-full rounded-md bg-blue-500 py-3 px-8 text-center text-base font-semibold text-white outline-none">
                 Create Application
               </button>
+              <Toaster
+                toastOptions={{
+                  className: "font-semibold",
+                  success: {
+                    style: {
+                      background: "#bbf451",
+                    },
+                  },
+                  error: {
+                    style: {
+                      background: "red",
+                    },
+                  },
+                }}
+              />
             </div>
           </form>
         </div>
@@ -541,7 +561,7 @@ export default function Rotation() {
                 </th>
 
                 <th scope="col" className="py-3 pr-3">
-                  ACTION
+                  PRINT
                 </th>
               </tr>
             </thead>
@@ -582,14 +602,14 @@ export default function Rotation() {
 
                       <td className="pl-3 text-gray-900">
                         {/* {prod.productname.substring(0, 35)}... */}
-                        {veh.tdate}
+                        {dayjs(veh.fdate).format("DD-MMM-YYYY")}
                       </td>
                       {/* <td className="mr-3 py-3">{veh.carrierInfo}</td>
                       <td className="mr-3 py-3">{veh.drivername}</td> */}
 
                       <td className="pl-3 text-gray-500">
-                        {veh.fdate}
-                        {/* {dayjs(veh.doj).format("DD-MMM-YYYY")} */}
+                        {/* {veh.fdate} */}
+                        {dayjs(veh.tdate).format("DD-MMM-YYYY")}
                       </td>
 
                       <td className="flex py-3">
@@ -604,7 +624,7 @@ export default function Rotation() {
                         {/* </Link> */}
                         <Link className="ml-2" to={`/report/${veh.id}`}>
                           {/* <TbReportSearch size="20px" color="#9b59b6" /> */}
-                          {"print"}
+                          <AiFillPrinter color="#0f172b" size={"18px"} />
                         </Link>
                       </td>
                     </tr>
@@ -614,6 +634,10 @@ export default function Rotation() {
           </table>
         </div>
       </section>
+      <p className="mt-8 mb-4 text-center font-semibold">
+        Develop by School of Postgraduate Studies - Dow University of Health
+        Sciences Karachi.
+      </p>
     </>
   );
 }

@@ -92,7 +92,10 @@ export default function RotationRep() {
             </button>
           </div>
           <div>
-            <button className="flex items-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded">
+            <button
+              onClick={() => navigate("/rotation")}
+              className="flex items-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
+            >
               <IoMdPrint className="" />
               &nbsp; Go Back
             </button>
@@ -168,8 +171,8 @@ export default function RotationRep() {
           </span>
           . <br />
           <br /> Kindly allow the rotation and issue me a letter.
-          <br /> Remarks or comments for the HOD / Supervisor
-          ________________________________________________________
+          <br /> Remarks or comments for the parent HOD / Supervisor
+          _________________________________________________
           <br />
           <br />
           _____________________________________________________________________________________________________________
