@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import html2pdf from "html2pdf.js";
 // import Logo from "./duhs-logo.png";
 // import Logo from "/public/duhs-logo.png";
+import Logo from "../assets/duhs-logo.PNG";
 import { IoMdPrint } from "react-icons/io";
 // Import Logo
 // import imgUrl from "/public/duhs-logo.png";
@@ -105,8 +106,8 @@ export default function RotationRep() {
 
       <section ref={contentRef} className="px-8 pt-5 mx-3">
         <div className="flex">
-          <img src={"./public/duhs-logo.PNG"} alt="duhs log" />
-          {/* <img src="" id="logo" alt="logo" /> */}
+          {/* <img src={"./public/duhs-logo.PNG"} alt="duhs log" /> */}
+          <img src={Logo} alt="logo" />
           <div>
             <div className="text-xl font-bold">
               Dow Universit of Health Sciences
