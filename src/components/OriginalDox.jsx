@@ -1,7 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router";
+
+import { useForm } from "react-hook-form";
+import { nanoid } from "nanoid";
+import { Link } from "react-router";
+import { FaUserGraduate } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
+// import { MdLocalHospital } from "react-icons/md";
+import { RiHospitalFill } from "react-icons/ri";
+import { FaHospitalAlt } from "react-icons/fa";
+import { FaCalendarDays } from "react-icons/fa6";
+import { AiFillPrinter } from "react-icons/ai";
+import { IoMdListBox } from "react-icons/io";
+
+import toast, { Toaster } from "react-hot-toast";
+import dayjs from "dayjs";
 
 export default function OriginalDox() {
+  const navigate = useNavigate();
+
+  const [trainee, setTrainee] = useState([]);
+
+  const {
+    register,
+    //watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("all data: ", data);
+
+    const newItem = {
+      id: nanoid(9),
+      tname: data.tname,
+      fname: data.fname,
+      pward: data.pward,
+      pinst: data.pinst,
+      reason: data.reason,
+    };
+    // setItems((prevItems) => [...prevItems, newItem]);
+    window.sessionStorage.setItem("document", JSON.stringify(newItem));
+    setTrainee(newItem);
+    toast.success(
+      "Document application created successfully! Please take a printout.",
+    );
+
+    setTimeout(() => {
+      // setShowNavBar(true);
+      console.log("original documents.");
+      navigate("/document");
+    }, 4000);
+
+    // navigate("/currentfcps");
+  };
+
   return (
     <section>
       <Navbar />
@@ -9,41 +63,254 @@ export default function OriginalDox() {
       <br />
       <br />
       <br />
-      <h2 className="text-center text-2xl text-slate-900">Coming Soon!</h2>
-      {/* <p>
-        Date: [DD/MM/YYYY] <br />
-        The Principal
-        <br />
+      {/* <div className="text-2xl font-semibold text-center">
+        Dow Universit of Health Sciences
+      </div> */}
+      <div className="text-2xl font-semibold text-center mt-1 mb-1">
         School of Postgraduate Studies
-        <br />
-        DUHS Karachi.
-        <br />
-        <br /> Subject: Application for Return of Original Documents.
-        <br />
-        <br /> Respected Sir/Madam,
-        <br />
-        <br /> I respectfully request the return of my original documents that
-        were submitted at the time of interview to DUHS university for
-        verification / record purposes.
-        <br />
-        REASON:
-        <br />
-        __________________________________ <br /> The details of the documents
-        are as follows:
-        <br /> Name: [Your Full Name]
-        <br /> CMS ID No: [Your ID Number] <br />
-        Date of Submission: [Date].
-        <br /> I kindly request you to return my original documents at your
-        earliest convenience as I require them for personal/official use. I
-        would be grateful for your cooperation.
-        <br /> Thank you.
-        <br /> Sincerely,
-        <br /> [Your Name]
-        <br />
-        Department
-        <br /> [Your Contact Number]
-        <br /> [Your Signature]
-      </p> */}
+      </div>
+      <h2 className="text-center  text-slate-900 mb-5">
+        Application for Return of Original Documents
+      </h2>
+
+      {/* start form */}
+      <div className="flex items-center justify-center p-1">
+        <div className="mx-auto `max-w-500` w-3/5 bg-white">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-5">
+              <div className="flex">
+                <p className="mr-1 mt-1 text-[#07074D]">
+                  <FaUserGraduate />
+                </p>
+                <label
+                  // htmlFor="name"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Trainee's Full Name
+                </label>
+              </div>
+              <input
+                type="text"
+                {...register("tname", { required: true })}
+                // name="name"
+                // id="name"
+                placeholder="Full Name"
+                className="w-full rounded-md bg-gray-50 border border-[#e0e0e0] py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-400 focus:shadow-md"
+              />
+              {errors.tname && (
+                <p className="text-red-700">Trainee name is required.</p>
+              )}
+            </div>
+            <div className="mb-5">
+              <div className="flex">
+                <p className="mr-1 mt-1 text-[#07074D]">
+                  <FaUserTie />
+                </p>
+                <label
+                  // htmlFor="phone"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Father Name
+                </label>
+              </div>
+              <input
+                type="text"
+                {...register("fname", { required: true })}
+                // name="phone"
+                // id="phone"
+                placeholder="Enter your father name"
+                className="w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-400 focus:shadow-md"
+              />
+              {errors.fname && (
+                <p className="text-red-700">Father name is required.</p>
+              )}
+            </div>
+            <div className="mb-5">
+              <div className="flex">
+                <p className="mr-1 mt-1 text-[#07074D]">
+                  <RiHospitalFill />
+                </p>
+                <label
+                  // htmlFor="email"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Parent Department
+                </label>
+              </div>
+              <select
+                className="w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-400 focus:shadow-md"
+                name="pets"
+                // id="pet-select"
+                {...register("pward", { required: true })}
+              >
+                <option value="">PLEASE SELECT...</option>
+                <option value="ANAESTHESIOLOGY">ANAESTHESIOLOGY</option>
+                <option value="BREAST SURGERY - 2ND FELLOW">
+                  BREAST SURGERY - 2ND FELLOW
+                </option>
+                <option value="CARDIAC SURGERY">CARDIAC SURGERY</option>
+                <option value="CARDIOLOGY">CARDIOLOGY</option>
+                <option value="COMMUNITY MEDICINE">COMMUNITY MEDICINE</option>
+                <option value="CHEMICAL PATHOLOGY">CHEMICAL PATHOLOGY</option>
+                <option value="CLINICAL HEMATOLOGY">CLINICAL HEMATOLOGY</option>
+                <option value="DERMATOLOGY">DERMATOLOGY</option>
+                <option value="ENDOCRINOLOGY">ENDOCRINOLOGY</option>
+                <option value="ENT UNIT-I">ENT UNIT-I</option>
+                <option value="ENT UNIT-II">ENT UNIT-II</option>
+                <option value="EYE UNIT-I">EYE UNIT-I</option>
+                <option value="EYE UNIT-II">EYE UNIT-II</option>
+                <option value="FORENSIC MEDICINE">FORENSIC MEDICINE</option>
+                <option value="FAMILY MEDICINE">FAMILY MEDICINE</option>
+                <option value="GASTROENTEROLOGY">GASTROENTEROLOGY</option>
+                <option value="GYNAE UNIT-I">GYNAE UNIT-I</option>
+                <option value="GYNAE UNIT-II">GYNAE UNIT-II</option>
+                <option value="GYNAE UNIT-III">GYNAE UNIT-III</option>
+                <option value="HEPATO-PANCREATO-BILIARY & LIVER-TRANSPLANT SURGERY">
+                  HEPATO-PANCREATO-BILIARY & LIVER-TRANSPLANT SURGERY
+                </option>
+                <option value="HISTOPATHOLOGY">HISTOPATHOLOGY</option>
+                <option value="INFECTIOUS DISEASES">INFECTIOUS DISEASES</option>
+                <option value="INTERVENTIONAL CARDIOLOGY">
+                  INTERVENTIONAL CARDIOLOGY{" "}
+                </option>
+                <option value="LAB HEMATOLOGY">LAB HEMATOLOGY</option>
+                <option value="MEDICAL UNIT-I">MEDICAL UNIT-I</option>
+                <option value="MEDICAL UNIT-II">MEDICAL UNIT-II</option>
+                <option value="MEDICAL UNIT-III">MEDICAL UNIT-III</option>
+                <option value="MEDICAL UNIT-IV">MEDICAL UNIT-IV</option>
+                <option value="MEDICAL UNIT-V">MEDICAL UNIT-V</option>
+                <option value="NEPHROLOGY">NEPHROLOGY</option>
+                <option value="NEUROLOGY">NEUROLOGY</option>
+                <option value="NEUROSURGERY">NEUROSURGERY</option>
+                <option value="OPERATIVE DENTISTRY">OPERATIVE DENTISTRY</option>
+                <option value="ORTHODONTICS">ORTHODONTICS</option>
+                <option value="ORAL & MAXILLOFACIAL SURGERY">
+                  ORAL & MAXILLOFACIAL SURGERY
+                </option>
+                <option value="ORTHOPEDIC-I">ORTHOPEDIC-I</option>
+                <option value="ORTHOPEDIC-II">ORTHOPEDIC-II</option>
+                <option value="PAEDIATRICS-I">PAEDIATRICS-I</option>
+                <option value="PAEDIATRICS-II">PAEDIATRICS-II</option>
+                <option value="PAEDIATRICS-III">PAEDIATRICS-III</option>
+                <option value="PAEDS ORTHOPEDIC-I">PAEDS ORTHOPEDIC-I</option>
+                <option value="PAEDS ORTHOPEDIC-II">PAEDS ORTHOPEDIC-II</option>
+                <option value="PAEDS SURGERY">PAEDS SURGERY</option>
+                <option value="PAEDS OPHTHALMOLOGY">PAEDS OPHTHALMOLOGY</option>
+                <option value="PHYSICAL MEDICINE & REHABILITATION">
+                  PHYSICAL MEDICINE & REHABILITATION
+                </option>
+                <option value="PLASTIC SURGERY">PLASTIC SURGERY</option>
+                <option value="PROSTHODONTICS">PROSTHODONTICS</option>
+                <option value="PSYCHIATRY">PSYCHIATRY</option>
+                <option value="PULMONOLOGY">PULMONOLOGY</option>
+                <option value="RADIOLOGY">RADIOLOGY</option>
+                <option value="SURGICAL UNIT-I">SURGICAL UNIT-I</option>
+                <option value="SURGICAL UNIT-II">SURGICAL UNIT-II</option>
+                <option value="SURGICAL UNIT-III">SURGICAL UNIT-III</option>
+                <option value="SURGICAL UNIT-IV">SURGICAL UNIT-IV</option>
+                <option value="SURGICAL UNIT-V">SURGICAL UNIT-V</option>
+                <option value="SURGICAL UNIT-VI">SURGICAL UNIT-VI</option>
+                <option value="UROLOGY">UROLOGY</option>
+                <option value="VIR">VIR</option>
+                <option value="NEURO IMAGING">NEURO IMAGING</option>
+                <option value="WOMEN IMAGING">WOMEN IMAGING</option>
+              </select>
+              {errors.pward && (
+                <p className="text-red-700">Please select parent ward.</p>
+              )}
+            </div>
+            {/*  */}
+            <div className="mb-5">
+              <div className="flex">
+                <p className="mr-1 mt-1 text-[#07074D]">
+                  <FaHospitalAlt />
+                </p>
+                <label
+                  // htmlFor="email"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Parent Institute Name
+                </label>
+              </div>
+              <select
+                className="w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-400 focus:shadow-md"
+                name="pets"
+                {...register("pinst", { required: true })}
+                // id="pet-select"
+              >
+                <option value="Dr Ruth KM Pfau, Civil Hospital Karachi">
+                  Dr Ruth KM Pfau, Civil Hospital Karachi
+                </option>
+                <option value="Dow University Hospital">
+                  Dow University Hospital
+                </option>
+                <option value="Dow Dental College">Dow Dental College</option>
+                <option value="Dow International Dental College">
+                  Dow International Dental College
+                </option>
+                <option value="DIKIOHS, DUHS">DIKIOHS, DUHS</option>
+                <option value="OICD, DUHS">OICD, DUHS</option>
+                <option value="NIDE, DUHS">NIDE, DUHS</option>
+              </select>
+            </div>
+
+            <div className="mb-5">
+              <div className="flex">
+                <p className="mr-1 mt-1 text-[#07074D]">
+                  <IoMdListBox />
+                </p>
+                <label
+                  // htmlFor="phone"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Reason
+                </label>
+              </div>
+              <input
+                type="text"
+                {...register("reason", { required: true })}
+                // name="phone"
+                // id="phone"
+                placeholder="Enter your reason"
+                className="w-full rounded-md border border-[#e0e0e0] bg-gray-50 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-blue-400 focus:shadow-md"
+              />
+              {errors.reason && (
+                <p className="text-red-700">Reason is required.</p>
+              )}
+            </div>
+
+            <div>
+              <button className="mt-3 hover:shadow-form w-full rounded-md bg-blue-500 py-3 px-8 text-center text-base font-semibold text-white outline-none">
+                Create Document Application
+              </button>
+              <Toaster
+                toastOptions={{
+                  className: "font-semibold",
+                  success: {
+                    style: {
+                      background: "#bbf451",
+                    },
+                  },
+                  error: {
+                    style: {
+                      background: "red",
+                    },
+                  },
+                }}
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {/* end form */}
+      <div className="w-3/5 m-auto">
+        <div className="mt-20 py-3 font-medium text-center text-sm">
+          <p className="border border-slate-600 text-slate-700 mb-2"></p>
+          Develop by School of Postgradate Studies. Dow University of Health
+          Sciences Karachi
+        </div>
+      </div>
     </section>
   );
 }

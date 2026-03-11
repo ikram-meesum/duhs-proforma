@@ -10,6 +10,7 @@ import RotationRep from "./Reports/RotationRep.jsx";
 import Home from "./components/Home.jsx";
 import Leaves from "./components/Leaves.jsx";
 import OriginalDox from "./components/OriginalDox.jsx";
+import LeaveRep from "./Reports/LeaveRep.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
 
       {/* All Report */}
       <Route path="/report/:id" element={<RotationRep />} />
+      <Route path="/document" element={<LeaveRep />} />
     </Routes>
   </BrowserRouter>,
   // <StrictMode>
