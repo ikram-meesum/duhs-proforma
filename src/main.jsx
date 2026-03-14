@@ -11,6 +11,7 @@ import Home from "./components/Home.jsx";
 import Leaves from "./components/Leaves.jsx";
 import OriginalDox from "./components/OriginalDox.jsx";
 import LeaveRep from "./Reports/LeaveRep.jsx";
+import { AnimatePresence, motion } from "framer-motion";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
