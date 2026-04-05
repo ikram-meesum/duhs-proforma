@@ -10,6 +10,8 @@ import RotationRep from "./Reports/RotationRep.jsx";
 import Home from "./components/Home.jsx";
 import Leaves from "./components/Leaves.jsx";
 import OriginalDox from "./components/OriginalDox.jsx";
+// import LeaveRep from "./Reports/LeaveRep.jsx";
+import DocReport from "./Reports/DoctRep.jsx";
 import LeaveRep from "./Reports/LeaveRep.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -26,7 +28,8 @@ createRoot(document.getElementById("root")).render(
 
       {/* All Report */}
       <Route path="/report/:id" element={<RotationRep />} />
-      <Route path="/document" element={<LeaveRep />} />
+      <Route path="/document" element={<DocReport />} />
+      <Route path="/leavereport" element={<LeaveRep />} />
     </Routes>
   </BrowserRouter>,
   // <StrictMode>

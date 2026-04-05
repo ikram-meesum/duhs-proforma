@@ -66,15 +66,15 @@ export default function Rotation() {
       <br />
       <br />
       <AnimationPage>
-        <h2 className="text-3xl text-center font-bold text-slate-800 mt-9">
-          School of Postgraduate Studies
+        <h2 className="text-2xl text-center font-medium text-slate-800 mt-16">
+          Rotation Application for FCPS-II Trainees
         </h2>
-        <h2 className="text-3xl text-center font-bold text-slate-800 mt-1 mb-2">
-          Rotation Application
+        <h2 className="text-xl text-center text-slate-800 mt-1 mb-8">
+          Generate Rotation Application
         </h2>
-        <h2 className="text-sm text-center font-medium mb-9 text-slate-600">
+        {/* <h2 className="text-sm text-center font-medium mb-9 text-slate-600">
           Create new FCPS-II Rotation Application
-        </h2>
+        </h2> */}
 
         <div
           className="flex items-center p-4 mt-6 mb-6 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 w-4/5 mx-auto"
@@ -99,7 +99,7 @@ export default function Rotation() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 w-4/5 mx-auto">
-          <h1 className="text-xl font-semibold mb-3">TRAINEE'S DETAILS</h1>
+          <h1 className="text-xl font-semibold mb-3 mt-5">TRAINEE'S DETAILS</h1>
         </div>
         {/* start form */}
         <div className="flex items-center justify-center p-1">
