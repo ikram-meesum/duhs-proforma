@@ -66,7 +66,17 @@ export default function Rotation() {
       <br />
       <br />
       <AnimationPage>
-        <h2 className="text-2xl text-center font-medium text-slate-800 mt-16">
+        <div className="mt-16"></div>
+        <div className="flex items-center justify-center">
+          <Link
+            to={"/home"}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded"
+          >
+            Go Back
+          </Link>
+        </div>
+
+        <h2 className="text-2xl text-center font-medium text-slate-800 mt-10">
           Rotation Application for FCPS-II Trainees
         </h2>
         <h2 className="text-xl text-center text-slate-800 mt-1 mb-8">
@@ -371,9 +381,7 @@ export default function Rotation() {
                         // id="pet-select"
                       >
                         <option value="ANAESTHESIOLOGY">ANAESTHESIOLOGY</option>
-                        <option value="BREAST SURGERY">
-                          BREAST SURGERY - 2ND FELLOW
-                        </option>
+                        <option value="BREAST SURGERY">BREAST SURGERY</option>
                         <option value="CARDIAC SURGERY">CARDIAC SURGERY</option>
                         <option value="CARDIOLOGY">CARDIOLOGY</option>
                         <option value="COMMUNITY MEDICINE">
@@ -419,6 +427,8 @@ export default function Rotation() {
                         </option>
                         <option value="MEDICAL UNIT-IV">MEDICAL UNIT-IV</option>
                         <option value="MEDICAL UNIT-V">MEDICAL UNIT-V</option>
+                        <option value="MEDICAL ICU">MEDICAL ICU</option>
+
                         <option value="NEPHROLOGY">NEPHROLOGY</option>
                         <option value="NEUROLOGY">NEUROLOGY</option>
                         <option value="NEUROSURGERY">NEUROSURGERY</option>
@@ -435,6 +445,9 @@ export default function Rotation() {
                         <option value="PAEDIATRICS-I">PAEDIATRICS-I</option>
                         <option value="PAEDIATRICS-II">PAEDIATRICS-II</option>
                         <option value="PAEDIATRICS-III">PAEDIATRICS-III</option>
+                        <option value="PAEDIATRICS ICU">PAEDIATRICS ICU</option>
+                        <option value="PAEDS EMERGENCY">PAEDS EMERGENCY</option>
+
                         <option value="PAEDS ORTHOPEDIC-I">
                           PAEDS ORTHOPEDIC-I
                         </option>
@@ -454,6 +467,11 @@ export default function Rotation() {
                         <option value="PULMONOLOGY">PULMONOLOGY</option>
                         <option value="RADIOLOGY">RADIOLOGY</option>
                         <option value="SURGICAL UNIT-I">SURGICAL UNIT-I</option>
+
+                        <option value="SOCIAL PREVENTIVE PAEDIATRIC">
+                          SOCIAL PREVENTIVE PAEDIATRIC
+                        </option>
+
                         <option value="SURGICAL UNIT-II">
                           SURGICAL UNIT-II
                         </option>
@@ -508,6 +526,7 @@ export default function Rotation() {
                         <option value="DIKIOHS, DUHS">DIKIOHS, DUHS</option>
                         <option value="OICD, DUHS">OICD, DUHS</option>
                         <option value="NIDE, DUHS">NIDE, DUHS</option>
+                        <option value="NIDE, DUHS">NILGID, DUHS</option>
                       </select>
                     </div>
                   </div>

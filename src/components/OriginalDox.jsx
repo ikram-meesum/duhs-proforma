@@ -64,11 +64,21 @@ export default function OriginalDox() {
       <br />
       <br />
       <AnimationPage>
+        <div className="mt-10"></div>
+        <div className="flex items-center justify-center">
+          <Link
+            to={"/home"}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded"
+          >
+            Go Back
+          </Link>
+        </div>
+
         <br />
-        {/* <div className="text-2xl font-semibold text-center">
+        {/* <div className="text-2xl uppercase font-semibold text-center">
         Dow Universit of Health Sciences
       </div> */}
-        <div className="text-2xl font-semibold text-center mt-10 mb-1">
+        <div className="text-2xl font-semibold text-center mt-5 mb-1">
           Return of Original Document Application
         </div>
         <h2 className="text-center text-xl text-slate-900 mb-10">

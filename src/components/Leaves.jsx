@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 import { useForm, useWatch, useFormContext } from "react-hook-form";
 import { nanoid } from "nanoid";
-// import { Link } from "react-router";
+import { Link } from "react-router";
 import { FaUserGraduate } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import { RiHospitalFill } from "react-icons/ri";
@@ -75,7 +75,17 @@ export default function Leaves() {
       <br />
       <br />
       <AnimationPage>
+        <div className="mt-10"></div>
+        <div className="flex items-center justify-center">
+          <Link
+            to={"/home"}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded"
+          >
+            Go Back
+          </Link>
+        </div>
         <br />
+
         <h2 className="text-center text-2xl font-medium text-slate-900">
           Leave Application for FCPS & MCPS Trainees
         </h2>
